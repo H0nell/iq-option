@@ -6,3 +6,6 @@
    apt:
      name: nginx
      state: latest
+     notify:
+     - NGINX started
+     - NGINX startup

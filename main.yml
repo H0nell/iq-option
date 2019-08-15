@@ -1,11 +1,11 @@
 ---
- - hosts: "iq-option"
+ - hosts: iq-option
    gather_facts: false
    pre_tasks:
    - name: update repo
      raw: apt-get update
    - name: install python-minimal for ansible_work
      raw: apt-get install -y python-minimal
-   roles:
-   - nginx
-   - minio
+     roles:
+       - nginx
+       - minio
