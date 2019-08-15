@@ -6,6 +6,20 @@
      raw: apt-get update
    - name: install python-minimal for ansible_work
      raw: apt-get install -y python-minimal
-     roles:
-       - nginx
-       - minio
+   - name: install ufw
+     apt:
+       name: ufw
+       state: latest
+   - name: allow ssh
+     ufw:
+       rule: allow
+       port: 22
+       proto: tcp
+   - name: allow http
+     ufw:
+      rule: allow
+      port: 80
+      proto: tcp
+   roles:
+   - nginx
+   - minio

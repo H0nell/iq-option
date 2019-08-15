@@ -1,0 +1,14 @@
+events {}
+
+http {
+
+  server {
+
+   listen 80;
+ 
+   location / {
+     add_header proxied nginx;
+     proxy_pass 'http://localhost:9000/';
+
+  }
+}

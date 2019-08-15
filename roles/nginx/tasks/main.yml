@@ -4,8 +4,7 @@
      update_cache: yes
  - name: install nginx
    apt:
-     name: nginx
+     name: "nginx"
      state: latest
-     notify:
-     - NGINX started
-     - NGINX startup
+   notify:
+    - NGINX started
