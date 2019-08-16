@@ -1,9 +1,4 @@
 ---
- - name: ufw installed
-   service:
-     name: ufw
-     state: started
-     enabled: yes
  - name: minio service installed
    service:
      name: minio
