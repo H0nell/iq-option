@@ -2,6 +2,8 @@
 folders:
  - /opt/data1
  - /opt/data2
-
-
+#folder1: /opt/data1
+#folder2: /opt/data2
+url1: 192.168.1.18
+url2: 192.168.1.20
 

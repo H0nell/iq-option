@@ -4,3 +4,7 @@
      name: nginx
      state: started
      enabled: yes
+ - name: new nginx config
+   service:
+     name: nginx
+     state: reloaded

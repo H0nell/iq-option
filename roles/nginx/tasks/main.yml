@@ -8,3 +8,12 @@
      state: latest
    notify:
     - NGINX started
+ - name: copy usual nginx conf
+   template:
+     src: /home/xisen/iq-option/roles/nginx/templates/nginx.conf
+     dest: /etc/nginx/nginx.conf
+ - name: template for nginx
+   template:
+     src: /home/xisen/iq-option/roles/nginx/templates/nginx-balancer-config.conf
+     dest: /etc/nginx/conf.d/
+   notify: new nginx config

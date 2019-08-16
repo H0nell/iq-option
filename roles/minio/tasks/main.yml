@@ -16,11 +16,19 @@
      mode: '0755'
      owner: minio-user
      group: minio-user
-   loop: 
-     - "{{ folders }}"
+   with_items: "{{ folders }}"
 # - name: Create a share
 #   file:
-#     path: {{ folder2 }}
+#     path: "{{ folder1 }}"
+#     state: directory
+#     mode: '0755'
+#     owner: minio-user
+#     group: minio-user
+#   loop: 
+#     - "{{ folders }}"
+# - name: Create a share
+#   file:
+#     path: "{{ folder2 }}"
 #     state: directory
 #     mode: '0755'
 #     owner: minio-user
