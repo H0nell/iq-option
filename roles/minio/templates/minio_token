@@ -1,0 +1,5 @@
+#MINIO_VOLUMES="/usr/local/share/minio/"
+#MINIO_OPTS="-C /etc/minio --address http://node{1...2}:9000/opt"
+MINIO_ACCESS_KEY=ASDsdadsafasfasfRFSAFS
+MINIO_SECRET_KEY=sdadsasdasfFGASFASFVvac
+
