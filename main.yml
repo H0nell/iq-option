@@ -9,3 +9,6 @@
    roles:
    - nginx
    - minio
+   tasks:
+   - name: install python modules
+     include: python_localhost.yml

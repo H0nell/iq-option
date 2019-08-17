@@ -56,23 +56,22 @@
     group: minio-user
  - name: copy config file
    copy:
-     src: /home/xisen/iq-option/roles/minio/templates/minio_token
+     src: minio_token
      dest: /etc/default/minio
  - name: copy config file
-   copy:
-     src: /home/xisen/iq-option/roles/minio/minio.service
+   template:
+     src: minio.service
      dest: /etc/systemd/system
-
-
- - name: copy tokens
-   copy:
-     src: /home/xisen/iq-option/roles/minio/templates/export_env
-     dest: /opt/
- - name: export_env
-   shell: cat /opt/export_env >> /etc/environment
+ - name: create a first backet
+   file:
+     path: "{{ item }}/bucket"
+     state: directory
+     mode: '0755'
+     owner: minio-user
+     group: minio-user
+   with_items: "{{ folders }}"
+# - name: export_env
+#   shell: cat /opt/export_env >> /etc/environment
  - name: restart systemctl
    command: systemctl daemon-reload
    notify: minio service installed
-
-# - name: run minio
-#   command: /usr/local/bin/minio server /data 
