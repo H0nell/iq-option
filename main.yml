@@ -6,9 +6,13 @@
      raw: apt-get update
    - name: install python-minimal for ansible_work
      raw: apt-get install -y python-minimal
+   - name: install minio client
+     include_tasks: install_client.yml
    roles:
    - nginx
    - minio
+   
+ - hosts: localhost
    tasks:
    - name: install python modules
-     include: python_localhost.yml
+     include_tasks: python_localhost.yml

@@ -14,14 +14,14 @@ Group=minio-user
 EnvironmentFile=/etc/default/minio
 #ExecStartPre=/bin/bash -c "if [ -z \"${MINIO_VOLUMES}\" ]; then echo \"Variable MINIO_VOLUMES not set in /etc/default/minio\"; exit 1; fi"
 
-#ExecStart=/usr/local/bin/minio server http://"{{ url1 }}"/"{{ folder1 }} http://"{{ url1 }}"/"{{ folder2 }} http://"{{ url2 }}"/"{{ folder1 }} http://"{{ url2 }}"/"{{ folder2 }} bla
-ExecStart=/usr/local/bin/minio server http://192.168.1.18/opt/data1 http://192.168.1.18/opt/data2 http://192.168.1.20/opt/data1 http://192.168.1.20/opt/data2
+ExecStart=/usr/local/bin/minio server http://{{ url1 }}{{ folder1 }} http://{{ url1 }}{{ folder2 }} http://{{ url2 }}{{ folder1 }} http://{{ url2 }}{{ folder2 }} http://{{ url3 }}{{ folder1 }} http://{{ url3 }}{{ folder2 }}
+#ExecStart=/usr/local/bin/minio server http://192.168.1.18/opt/data1 http://192.168.1.18/opt/data2 http://192.168.1.20/opt/data1 http://192.168.1.20/opt/data2
 
 
 
 
 # Let systemd restart this service always
-# Restart=always
+ Restart=always
 
 # Specifies the maximum file descriptor number that can be opened by this process
 LimitNOFILE=65536

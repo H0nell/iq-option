@@ -1,0 +1,6 @@
+---
+  - name: install minio client
+    get_url:
+     url: https://dl.min.io/client/mc/release/linux-amd64/mc
+     dest: /opt/
+     mode: '0777'
