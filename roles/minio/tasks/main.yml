@@ -62,16 +62,16 @@
    template:
      src: minio.service
      dest: /etc/systemd/system
- - name: create a first backet
-   file:
-     path: "{{ item }}/bucket"
-     state: directory
-     mode: '0755'
-     owner: minio-user
-     group: minio-user
-   with_items: "{{ folders }}"
-# - name: export_env
-#   shell: cat /opt/export_env >> /etc/environment
  - name: restart systemctl
    command: systemctl daemon-reload
    notify: minio service installed
+
+# - name: create a first backet
+#   file:
+#     path: "{{ item }}/bucket"
+#     state: directory
+#     mode: '0755'
+#     owner: minio-user
+#     group: minio-user
+#   with_items: "{{ folders }}"
+
